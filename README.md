@@ -53,6 +53,7 @@ use command as:
 ```
 go run ./ -<command>
 
-e.g. go run ./ -List
+e.g. 
+go run ./ -List
 
 ```
