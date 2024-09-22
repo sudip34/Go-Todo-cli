@@ -8,9 +8,6 @@ func main() {
 	todos.add("Buy milk")
 	todos.add("Buy bread")
 	todos.add("Buy benana")
-
-	fmt.Printf("%+v\n\n", todos)
-
-	todos.delete(0)
-	fmt.Printf("%+v", todos)
+	todos.toggle(0)
+	todos.print()
 }

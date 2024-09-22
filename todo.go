@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"os"
 	"strconv"
 	"time"
 
@@ -38,65 +39,62 @@ func (todos *Todos) validateIndex(index int) error {
 	return nil
 }
 
-func (todos *Todos) delete(index int) error {
+// func (todos *Todos) delete(index int) error {
+// 	t := *todos
+// 	if err := t.validateIndex(index); err != nil {
+// 		return err
+// 	}
+
+// 	*todos = append(t[:index], t[index+1:]...) //... or ellipsis is the spread operator
+// 	return nil
+// }
+
+func (todos *Todos) toggle(index int) error {
 	t := *todos
+
 	if err := t.validateIndex(index); err != nil {
 		return err
-	}
-
-	*todos = append(t[:index], t[index+1:]...) //... or ellipsis is the spread operator
-	return nil
-}
-
-func (todos :Todos) toggle(index int) error {
-	t :=Todos
-	
-	if err := t.validateIndex(index); err !=nil {
-		return err 
 	}
 	isCompleted := t[index].Completed
 
 	if !isCompleted {
 		completionTime := time.Now()
-		t[index].CompletedAt = &completionTime 
+		t[index].CompletedAt = &completionTime
 		t[index].Completed = !isCompleted
 	}
 	return nil
 }
 
+func (todos *Todos) editTitle(index int, title string) error {
+	t := *todos
 
-func (todos :Todos) editTitle(index int, title string) error {
-	t :=Todos
-	
-	if err := t.validateIndex(index); err !=nil {
-		return err 
+	if err := t.validateIndex(index); err != nil {
+		return err
 	}
-
 
 	t[index].Title = title
 
 	return nil
 }
 
-
 func (todos *Todos) print() {
 	table := table.New(os.Stdout)
 	table.SetRowLines(false)
-	table.SetHeaders("#", "Title", "Completed","Created At", "Completed At")
+	table.SetHeaders("#", "Title", "Completed", "Created At", "Completed At")
 
-	for index, t  := range *todos  {
-		 completed :="❌"
-		 completeAt :=""
-	
+	for index, t := range *todos {
+		completed := "❌"
+		completedAt := ""
+
 		if t.Completed {
 			completed = "✅"
-			if t.completeAt !=nil{
-				completeAt = t.CompletedAt.Format(time.RFC1123)
+			if t.CompletedAt != nil {
+				completedAt = t.CompletedAt.Format(time.RFC1123)
 			}
 
 		}
-		table.AddRow(strconv.Itoa(index), t.Title, completed, t.CreatedAt.Format(time.RFC1123), CompletedAt)
-	}	    	
+		table.AddRow(strconv.Itoa(index), t.Title, completed, t.CreatedAt.Format(time.RFC1123), completedAt)
+	}
 
-	table.Render();
+	table.Render()
 }
