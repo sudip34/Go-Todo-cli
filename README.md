@@ -33,3 +33,23 @@ go get github.com/aquasecurity/table
 
 ```
 this will update the ***go.mod*** and generate ***go.sum***
+
+
+
+## Use the command.go or cmdline
+
+>in `command.go` file we have following options 
+
+|---|---|
+|Option | Input Type|
+|---|---|
+| Add   | string |
+| Del   | int |
+| Edit  | string|
+| Toggle| int| 
+| List  | bool|
+
+```
+go run ./ -list
+
+```

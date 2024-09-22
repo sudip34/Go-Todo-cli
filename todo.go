@@ -39,15 +39,15 @@ func (todos *Todos) validateIndex(index int) error {
 	return nil
 }
 
-// func (todos *Todos) delete(index int) error {
-// 	t := *todos
-// 	if err := t.validateIndex(index); err != nil {
-// 		return err
-// 	}
+func (todos *Todos) delete(index int) error {
+	t := *todos
+	if err := t.validateIndex(index); err != nil {
+		return err
+	}
 
-// 	*todos = append(t[:index], t[index+1:]...) //... or ellipsis is the spread operator
-// 	return nil
-// }
+	*todos = append(t[:index], t[index+1:]...) //... or ellipsis is the spread operator
+	return nil
+}
 
 func (todos *Todos) toggle(index int) error {
 	t := *todos

@@ -8,10 +8,12 @@ func main() {
 	storage := NewStorage[Todos]("todos.json")
 	// load the file
 	storage.Load(&todos)
-	todos.add("Buy milk")
-	todos.add("Buy bread")
-	todos.add("Buy benana")
-	todos.toggle(0)
-	todos.print()
+	// todos.add("Buy milk")
+	// todos.add("Buy bread")
+	// todos.add("Buy benana")
+	// todos.toggle(0)
+	// todos.print()
+	cmdFlags := NewCmdFlags()
+	cmdFlags.Execute(&todos)
 	storage.save(todos)
 }
