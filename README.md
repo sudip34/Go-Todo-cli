@@ -40,7 +40,6 @@ this will update the ***go.mod*** and generate ***go.sum***
 
 >in `command.go` file we have following options 
 
-|---|---|
 |Option | Input Type|
 |---|---|
 | Add   | string |
@@ -50,6 +49,8 @@ this will update the ***go.mod*** and generate ***go.sum***
 | List  | bool|
 
 ```
-go run ./ -list
+go run ./ -<command>
+
+e.g. go run ./ -List
 
 ```
