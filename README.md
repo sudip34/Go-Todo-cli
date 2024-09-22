@@ -48,6 +48,8 @@ this will update the ***go.mod*** and generate ***go.sum***
 | Toggle| int| 
 | List  | bool|
 
+
+use command as:
 ```
 go run ./ -<command>
 
