@@ -32,4 +32,4 @@ go run <file.go>
 go get github.com/aquasecurity/table
 
 ```
-this will update the ***gomod*** and generate ***go.sum***
+this will update the ***go.mod*** and generate ***go.sum***
