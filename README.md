@@ -21,4 +21,15 @@ go run ./
 
 ```
 go run <file.go>
-```     
+```  
+
+
+## To printing up the TODO list use external libray `github.com/aquasecurity/table`
+
+- 1. openup an external terminal
+
+```
+go get github.com/aquasecurity/table
+
+```
+this will update the ***gomod*** and generate ***go.sum***
