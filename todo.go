@@ -62,7 +62,7 @@ func (todos :Todos) toggle(index int) error {
 }
 
 
-func (todos :Todos) updateTitle(index int, title string) error {
+func (todos :Todos) editTitle(index int, title string) error {
 	t :=Todos
 	
 	if err := t.validateIndex(index); err !=nil {
